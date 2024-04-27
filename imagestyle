@@ -100,7 +100,7 @@ def main():
         if 'model' not in st.session_state:
             st.session_state.model = load_model()
 
-        content_image = st.file_uploader("🖼 Upload Content Image 🖼", type=['jpg', 'jpeg', 'png'])
+        content_image = st.file_uploader(" Upload Content Image ", type=['jpg', 'jpeg', 'png'])
         style_image = st.file_uploader(" Upload Style Image ", type=['jpg', 'jpeg', 'png'])
 
         if content_image and style_image:
@@ -118,8 +118,8 @@ def main():
             with col2:
                 st.image(style_img_resized, caption='Style Image', use_column_width=True)
 
-        if st.button("🚀 Transfer Style 🚀"):
-            with st.spinner("Applying Style 💭💭💭"):
+        if st.button(" Transfer Style "):
+            with st.spinner("Applying Style "):
                 if content_image and style_image:
                     content_img = load_img_from_upload(content_image)
                     style_img = load_img_from_upload(style_image)
