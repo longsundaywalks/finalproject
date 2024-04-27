@@ -94,7 +94,7 @@ def main():
     unsafe_allow_html=True
 )
 
-        st.title(" Artistic Style Transfer App ")
+        st.title("Image Style Transfer Application")
 
         # Create session state to store model and other variables
         if 'model' not in st.session_state:
