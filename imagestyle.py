@@ -111,22 +111,22 @@ def main():
             style_img_resized = style_img.resize((256, 256))
 
             # Display the resized images side by side
-            st.subheader("📷 Uploaded Images 📷")
+            st.subheader("Uploaded Images")
             col1, col2 = st.columns(2)
             with col1:
                 st.image(content_img_resized, caption='Content Image', use_column_width=True)
             with col2:
                 st.image(style_img_resized, caption='Style Image', use_column_width=True)
 
-        if st.button(" Transfer Style "):
-            with st.spinner("Applying Style "):
+        if st.button("Transfer Style"):
+            with st.spinner("Applying Style"):
                 if content_image and style_image:
                     content_img = load_img_from_upload(content_image)
                     style_img = load_img_from_upload(style_image)
                     stylized_image = predict(st.session_state.model, content_img, style_img)
 
                     # Display the stylized image
-                    st.subheader(" Stylized Image ")
+                    st.subheader("Stylized Image")
                     st.image(tensor_to_image(stylized_image), caption='Stylized Image', use_column_width=True, output_format="PNG")
 
                     # Provide a download button for the stylized image
@@ -137,7 +137,7 @@ def main():
                     st.download_button(label=" Download Stylized Image ", data=img_bytes, file_name="stylized_image.png",
                                        mime="image/png")
                 else:
-                    st.warning("⚠ Please upload both content and style images.")
+                    st.warning(" Please upload both content and style images.")
     except Exception as e:
         st.error(" An error occurred: {}".format(str(e)))
 
